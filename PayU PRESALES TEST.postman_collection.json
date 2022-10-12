@@ -1,0 +1,2167 @@
+{
+	"info": {
+		"_postman_id": "28a40977-b241-4b5d-b48c-7f4d725e14ef",
+		"name": "PayU PRESALES TEST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "COL",
+			"item": [
+				{
+					"name": "Credit Card",
+					"item": [
+						{
+							"name": "1. Create Token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", jsonData.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "app_id",
+										"value": "{{app_id}}"
+									},
+									{
+										"key": "public_key",
+										"value": "{{public_key_COL}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "api-version",
+										"value": "1.3.0"
+									},
+									{
+										"key": "x-payments-os-env",
+										"value": "{{x-payments-os-env}}"
+									},
+									{
+										"key": "private_key",
+										"value": "{{private_key_COL}}",
+										"type": "default",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"token_type\": \"credit_card\",\n  \"credit_card_cvv\": \"777\",\n  \"card_number\": \"4097440000000004\",\n  \"holder_name\": \"Luis Osorno\",\n  \"expiration_date\": \"06/30\"\n}"
+								},
+								"url": {
+									"raw": "https://api.paymentsos.com/tokens",
+									"protocol": "https",
+									"host": [
+										"api",
+										"paymentsos",
+										"com"
+									],
+									"path": [
+										"tokens"
+									]
+								},
+								"description": "Create a new payment token"
+							},
+							"response": [
+								{
+									"name": "1. Create Token",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "app_id",
+												"value": "{{app_id}}"
+											},
+											{
+												"key": "public_key",
+												"value": "{{public_key_COL}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "api-version",
+												"value": "1.3.0"
+											},
+											{
+												"key": "x-payments-os-env",
+												"value": "{{x-payments-os-env}}"
+											},
+											{
+												"key": "private_key",
+												"value": "{{private_key_COL}}",
+												"type": "default",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"token_type\": \"credit_card\",\n  \"credit_card_cvv\": \"777\",\n  \"card_number\": \"4097440000000004\",\n  \"holder_name\": \"Luis Osorno\",\n  \"expiration_date\": \"06/30\"\n}"
+										},
+										"url": {
+											"raw": "https://api.paymentsos.com/tokens",
+											"protocol": "https",
+											"host": [
+												"api",
+												"paymentsos",
+												"com"
+											],
+											"path": [
+												"tokens"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Encoding",
+											"value": "gzip"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"27e-G1gbm/nFfzWV+coEzMnmPk7U9EM\""
+										},
+										{
+											"key": "self",
+											"value": "https://api.paymentsos.com/tokens/fd06d306-f851-4a9c-a03c-353f34308bbc"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "x-zooz-request-id",
+											"value": "badef241-2774-4c77-86e6-854eed23a894"
+										},
+										{
+											"key": "Content-Length",
+											"value": "493"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 12 Oct 2022 20:24:54 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "origin, x-requested-with, accept, x-payments-os-env, content-type, idempotency_key, app_id, x-client-user-agent, x-client-ip-address, public_key, private_key, x-zooz-account-id, authorization, api-version, provider-name"
+										},
+										{
+											"key": "Access-Control-Max-Age",
+											"value": "86400"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "false"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET,POST,PUT,DELETE,PATCH"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"token\": \"fd06d306-f851-4a9c-a03c-353f34308bbc\",\n    \"created\": \"1665606294366\",\n    \"pass_luhn_validation\": true,\n    \"token_type\": \"credit_card\",\n    \"type\": \"tokenized\",\n    \"state\": \"created\",\n    \"bin_number\": \"409744\",\n    \"vendor\": \"VISA\",\n    \"card_type\": \"CREDIT\",\n    \"issuer\": \"BANCO COLPATRIA - RED MULTIBANCA COLPATRIA, S.A.\",\n    \"level\": \"CLASSIC\",\n    \"country_code\": \"COL\",\n    \"holder_name\": \"Luis Osorno\",\n    \"expiration_date\": \"06/2030\",\n    \"last_4_digits\": \"0004\",\n    \"encrypted_cvv\": \"NGU1NWM4MGMtNWVkNC00ZGFmLTg1NGMtNWY4ZGM0ZmIxN2UyY3Z2X2RlbGltaXRlcnZhdWx0OnY1OlE2VTE4MTJJMG1TNTZIQTIyUmpYQkV5dzA1bUZPVlhhQzBwVmgvdTJEUytqd2dVdkp1RHhDUzQ3K1VjaW1sQ09Md0dvTkdNTFBOVFlKU05XU3RTVUg0VkM2NTg1eWVVSUxBUURDdWdB\"\n}"
+								}
+							]
+						},
+						{
+							"name": "2. Create Payment",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"paymentid\", jsonData.id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "app-id",
+										"value": "{{app_id}}"
+									},
+									{
+										"key": "private_key",
+										"value": "{{private_key_COL}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "api-version",
+										"value": "1.3.0"
+									},
+									{
+										"key": "x-payments-os-env",
+										"value": "{{x-payments-os-env}}"
+									},
+									{
+										"key": "idempotency_key",
+										"value": "{{$randomInt}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"amount\": 3000,\n  \"currency\": \"COP\",\n  \"statement_soft_descriptor\": \"Presales_TEST_20221012\"\n}"
+								},
+								"url": {
+									"raw": "https://api.paymentsos.com/payments",
+									"protocol": "https",
+									"host": [
+										"api",
+										"paymentsos",
+										"com"
+									],
+									"path": [
+										"payments"
+									]
+								},
+								"description": "Create a new payment"
+							},
+							"response": [
+								{
+									"name": "2. Create Payment",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "app-id",
+												"value": "{{app_id}}"
+											},
+											{
+												"key": "private_key",
+												"value": "{{private_key_COL}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "api-version",
+												"value": "1.3.0"
+											},
+											{
+												"key": "x-payments-os-env",
+												"value": "{{x-payments-os-env}}"
+											},
+											{
+												"key": "idempotency_key",
+												"value": "{{$randomInt}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"amount\": 3000,\n  \"currency\": \"COP\",\n  \"statement_soft_descriptor\": \"Presales_TEST_20221012\"\n}"
+										},
+										"url": {
+											"raw": "https://api.paymentsos.com/payments",
+											"protocol": "https",
+											"host": [
+												"api",
+												"paymentsos",
+												"com"
+											],
+											"path": [
+												"payments"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Encoding",
+											"value": "gzip"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3ba-E2lJ+Wr3R0VFkGqqZ95mNFtC5hQ\""
+										},
+										{
+											"key": "self",
+											"value": "https://api.paymentsos.com/payments/2b80f50e-b136-4d89-8d5d-8810e6d3f322"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "x-zooz-request-id",
+											"value": "a8853d78-512a-4829-a606-f0443a4686b5"
+										},
+										{
+											"key": "Content-Length",
+											"value": "336"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 12 Oct 2022 20:25:27 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "origin, x-requested-with, accept, x-payments-os-env, content-type, idempotency_key, app_id, x-client-user-agent, x-client-ip-address, public_key, private_key, x-zooz-account-id, authorization, api-version, provider-name"
+										},
+										{
+											"key": "Access-Control-Max-Age",
+											"value": "86400"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "false"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET,POST,PUT,DELETE,PATCH"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": \"2b80f50e-b136-4d89-8d5d-8810e6d3f322\",\n    \"currency\": \"COP\",\n    \"created\": \"1665606327481\",\n    \"modified\": \"1665606327481\",\n    \"statement_soft_descriptor\": \"Presales_TEST_20221012\",\n    \"is_disputed\": false,\n    \"status\": \"Initialized\",\n    \"possible_next_actions\": [\n        {\n            \"action\": \"Credit\",\n            \"href\": \"https://api.paymentsos.com/payments/2b80f50e-b136-4d89-8d5d-8810e6d3f322/credits\"\n        },\n        {\n            \"action\": \"Charge\",\n            \"href\": \"https://api.paymentsos.com/payments/2b80f50e-b136-4d89-8d5d-8810e6d3f322/charges\"\n        },\n        {\n            \"action\": \"Authorization\",\n            \"href\": \"https://api.paymentsos.com/payments/2b80f50e-b136-4d89-8d5d-8810e6d3f322/authorizations\"\n        },\n        {\n            \"action\": \"Update Payment\",\n            \"href\": \"https://api.paymentsos.com/payments/2b80f50e-b136-4d89-8d5d-8810e6d3f322\"\n        },\n        {\n            \"action\": \"Authentication\",\n            \"href\": \"https://api.paymentsos.com/payments/2b80f50e-b136-4d89-8d5d-8810e6d3f322/authentications\"\n        },\n        {\n            \"action\": \"Risk analysis\",\n            \"href\": \"https://api.paymentsos.com/payments/2b80f50e-b136-4d89-8d5d-8810e6d3f322/risk-analyses\"\n        }\n    ],\n    \"amount\": 3000\n}"
+								}
+							]
+						},
+						{
+							"name": "3. Create Charge",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "app_id",
+										"value": "{{app_id}}"
+									},
+									{
+										"key": "private_key",
+										"value": "{{private_key_COL}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "api-version",
+										"value": "1.3.0"
+									},
+									{
+										"key": "x-payments-os-env",
+										"value": "{{x-payments-os-env}}"
+									},
+									{
+										"key": "idempotency_key",
+										"value": "{{$randomInt}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"reconciliation_id\":\"{{$randomInt}}\",\n  \"payment_method\": {\n    \"credit_card_cvv\": \"777\",\n    \"token\": \"{{token}}\",\n    \"type\": \"tokenized\"\n  }\n}"
+								},
+								"url": {
+									"raw": "https://api.paymentsos.com/payments/{{paymentid}}/charges",
+									"protocol": "https",
+									"host": [
+										"api",
+										"paymentsos",
+										"com"
+									],
+									"path": [
+										"payments",
+										"{{paymentid}}",
+										"charges"
+									]
+								},
+								"description": "Create a new charge"
+							},
+							"response": [
+								{
+									"name": "3. Create Charge",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "app_id",
+												"value": "{{app_id}}"
+											},
+											{
+												"key": "private_key",
+												"value": "{{private_key_COL}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "api-version",
+												"value": "1.3.0"
+											},
+											{
+												"key": "x-payments-os-env",
+												"value": "{{x-payments-os-env}}"
+											},
+											{
+												"key": "idempotency_key",
+												"value": "{{$randomInt}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"reconciliation_id\":\"{{$randomInt}}\",\n  \"payment_method\": {\n    \"credit_card_cvv\": \"777\",\n    \"token\": \"{{token}}\",\n    \"type\": \"tokenized\"\n  }\n}"
+										},
+										"url": {
+											"raw": "https://api.paymentsos.com/payments/{{paymentid}}/charges",
+											"protocol": "https",
+											"host": [
+												"api",
+												"paymentsos",
+												"com"
+											],
+											"path": [
+												"payments",
+												"{{paymentid}}",
+												"charges"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Encoding",
+											"value": "gzip"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"85b-i6OQZRwqhHbo1/uRo2dGpdUnwC0\""
+										},
+										{
+											"key": "self",
+											"value": "https://api.paymentsos.com/payments/2b80f50e-b136-4d89-8d5d-8810e6d3f322/charges/23eb990e-1ba8-4e20-bff2-b7ab39278e44"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "x-zooz-request-id",
+											"value": "ae8560bb-f97f-42ee-b82e-485caea1c00b"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1076"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 12 Oct 2022 20:25:43 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "origin, x-requested-with, accept, x-payments-os-env, content-type, idempotency_key, app_id, x-client-user-agent, x-client-ip-address, public_key, private_key, x-zooz-account-id, authorization, api-version, provider-name"
+										},
+										{
+											"key": "Access-Control-Max-Age",
+											"value": "86400"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "false"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET,POST,PUT,DELETE,PATCH"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": \"23eb990e-1ba8-4e20-bff2-b7ab39278e44\",\n    \"created\": \"1665606343811\",\n    \"reconciliation_id\": \"577\",\n    \"payment_method\": {\n        \"type\": \"tokenized\",\n        \"token\": \"fd06d306-f851-4a9c-a03c-353f34308bbc\",\n        \"token_type\": \"credit_card\",\n        \"holder_name\": \"Luis Osorno\",\n        \"expiration_date\": \"06/2030\",\n        \"last_4_digits\": \"0004\",\n        \"pass_luhn_validation\": true,\n        \"fingerprint\": \"fcbc73f5-3179-4e49-ae5f-a7307cafe709\",\n        \"bin_number\": \"409744\",\n        \"vendor\": \"VISA\",\n        \"issuer\": \"BANCO COLPATRIA - RED MULTIBANCA COLPATRIA, S.A.\",\n        \"card_type\": \"CREDIT\",\n        \"level\": \"CLASSIC\",\n        \"country_code\": \"COL\",\n        \"created\": \"1665606294366\"\n    },\n    \"result\": {\n        \"status\": \"Succeed\"\n    },\n    \"provider_data\": {\n        \"provider_name\": \"PayULatam\",\n        \"response_code\": \"APPROVED\",\n        \"description\": \"APPROVED\",\n        \"raw_response\": \"{\\\"authorizationCode\\\":\\\"939587\\\",\\\"responseCode\\\":\\\"APPROVED\\\",\\\"state\\\":\\\"APPROVED\\\",\\\"BANK_REFERENCED_CODE\\\":\\\"CREDIT\\\",\\\"orderId\\\":\\\"2147906083\\\",\\\"operationDate\\\":\\\"1665588343735\\\",\\\"pendingReason\\\":null,\\\"paymentNetworkResponseErrorMessage\\\":null,\\\"errorCode\\\":null,\\\"responseMessage\\\":\\\"Approved, ask for more information\\\",\\\"referenceQuestionnaire\\\":null,\\\"additionalInfo\\\":\\\"{\\\\\\\"responseNetworkMessage\\\\\\\":null,\\\\\\\"transactionType\\\\\\\":\\\\\\\"AUTHORIZATION_AND_CAPTURE\\\\\\\",\\\\\\\"paymentNetwork\\\\\\\":\\\\\\\"CREDIBANCO\\\\\\\",\\\\\\\"rejectionType\\\\\\\":\\\\\\\"NONE\\\\\\\",\\\\\\\"cardType\\\\\\\":\\\\\\\"CREDIT\\\\\\\",\\\\\\\"travelAgencyAuthorizationCode\\\\\\\":null}\\\",\\\"trazabilityCode\\\":\\\"CRED - 666693486\\\",\\\"transactionDate\\\":null,\\\"transactionTime\\\":null,\\\"paymentNetworkResponseCode\\\":\\\"08\\\",\\\"extraParameters\\\":\\\"{\\\\\\\"BANK_REFERENCED_CODE\\\\\\\":\\\\\\\"CREDIT\\\\\\\"}\\\",\\\"transactionId\\\":\\\"5e7119cc-200b-401c-8ab2-2ab53a575ee0\\\"}\",\n        \"authorization_code\": \"939587\",\n        \"transaction_id\": \"5e7119cc-200b-401c-8ab2-2ab53a575ee0\",\n        \"external_id\": \"2147906083\"\n    },\n    \"amount\": 3000,\n    \"provider_configuration\": {\n        \"id\": \"0be6be45-2446-4834-8594-8b1ff48ec3c0\",\n        \"name\": \"Presales Test COL\",\n        \"created\": \"1665588758592\",\n        \"modified\": \"1665588758592\",\n        \"account_id\": \"c5e577ce-d7a8-4335-bca4-3f31a546c39d\",\n        \"provider_id\": \"3d9cb628-a5cd-49e2-b455-e46b10d7b6f3\",\n        \"type\": \"cc_processor\",\n        \"href\": \"https://api.paymentsos.com/accounts/c5e577ce-d7a8-4335-bca4-3f31a546c39d/provider-configurations/0be6be45-2446-4834-8594-8b1ff48ec3c0\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "4. Create Refund",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "app_id",
+										"value": "{{app_id}}"
+									},
+									{
+										"key": "private_key",
+										"value": "{{private_key_COL}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "api-version",
+										"value": "1.3.0"
+									},
+									{
+										"key": "x-payments-os-env",
+										"value": "{{x-payments-os-env}}"
+									},
+									{
+										"key": "idempotency_key",
+										"value": "{{$randomInt}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"amount\": 3000\n}"
+								},
+								"url": {
+									"raw": "https://api.paymentsos.com/payments/{{paymentid}}/refunds",
+									"protocol": "https",
+									"host": [
+										"api",
+										"paymentsos",
+										"com"
+									],
+									"path": [
+										"payments",
+										"{{paymentid}}",
+										"refunds"
+									]
+								},
+								"description": "Create a refund"
+							},
+							"response": [
+								{
+									"name": "4. Create Refund",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "app_id",
+												"value": "{{app_id}}"
+											},
+											{
+												"key": "private_key",
+												"value": "{{private_key_COL}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "api-version",
+												"value": "1.3.0"
+											},
+											{
+												"key": "x-payments-os-env",
+												"value": "{{x-payments-os-env}}"
+											},
+											{
+												"key": "idempotency_key",
+												"value": "{{$randomInt}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"amount\": 3000\n}"
+										},
+										"url": {
+											"raw": "https://api.paymentsos.com/payments/{{paymentid}}/refunds",
+											"protocol": "https",
+											"host": [
+												"api",
+												"paymentsos",
+												"com"
+											],
+											"path": [
+												"payments",
+												"{{paymentid}}",
+												"refunds"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Encoding",
+											"value": "gzip"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"5ee-PVomGufv9gszwNizON6KM5ur+rU\""
+										},
+										{
+											"key": "self",
+											"value": "https://api.paymentsos.com/payments/2b80f50e-b136-4d89-8d5d-8810e6d3f322/refunds/9203dfb9-76fa-4ff6-a1cb-2330c6b37094"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "x-zooz-request-id",
+											"value": "54c2e864-0cb8-41b4-b909-39272b925dc3"
+										},
+										{
+											"key": "Content-Length",
+											"value": "731"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 12 Oct 2022 20:26:52 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "origin, x-requested-with, accept, x-payments-os-env, content-type, idempotency_key, app_id, x-client-user-agent, x-client-ip-address, public_key, private_key, x-zooz-account-id, authorization, api-version, provider-name"
+										},
+										{
+											"key": "Access-Control-Max-Age",
+											"value": "86400"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "false"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET,POST,PUT,DELETE,PATCH"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": \"9203dfb9-76fa-4ff6-a1cb-2330c6b37094\",\n    \"created\": \"1665606412556\",\n    \"result\": {\n        \"status\": \"Succeed\"\n    },\n    \"provider_data\": {\n        \"provider_name\": \"PayULatam\",\n        \"response_code\": \"APPROVED\",\n        \"description\": \"APPROVED\",\n        \"raw_response\": \"{\\\"authorizationCode\\\":\\\"588776\\\",\\\"responseCode\\\":\\\"APPROVED\\\",\\\"state\\\":\\\"APPROVED\\\",\\\"orderId\\\":\\\"2147906083\\\",\\\"operationDate\\\":\\\"1665588412340\\\",\\\"pendingReason\\\":null,\\\"paymentNetworkResponseErrorMessage\\\":null,\\\"errorCode\\\":null,\\\"responseMessage\\\":\\\"Approved\\\",\\\"referenceQuestionnaire\\\":null,\\\"additionalInfo\\\":\\\"{\\\\\\\"responseNetworkMessage\\\\\\\":null,\\\\\\\"transactionType\\\\\\\":\\\\\\\"REFUND\\\\\\\",\\\\\\\"paymentNetwork\\\\\\\":\\\\\\\"CREDIBANCO\\\\\\\",\\\\\\\"rejectionType\\\\\\\":\\\\\\\"NONE\\\\\\\",\\\\\\\"cardType\\\\\\\":null,\\\\\\\"travelAgencyAuthorizationCode\\\\\\\":null}\\\",\\\"trazabilityCode\\\":\\\"CRED - 012356\\\",\\\"transactionDate\\\":null,\\\"transactionTime\\\":null,\\\"paymentNetworkResponseCode\\\":\\\"00\\\",\\\"extraParameters\\\":null,\\\"transactionId\\\":\\\"f3059ff1-15b4-4b60-80c5-56e44aacf03c\\\"}\",\n        \"authorization_code\": \"588776\",\n        \"transaction_id\": \"f3059ff1-15b4-4b60-80c5-56e44aacf03c\",\n        \"external_id\": \"2147906083\"\n    },\n    \"amount\": 3000,\n    \"provider_configuration\": {\n        \"id\": \"0be6be45-2446-4834-8594-8b1ff48ec3c0\",\n        \"name\": \"Presales Test COL\",\n        \"created\": \"1665588758592\",\n        \"modified\": \"1665588758592\",\n        \"account_id\": \"c5e577ce-d7a8-4335-bca4-3f31a546c39d\",\n        \"provider_id\": \"3d9cb628-a5cd-49e2-b455-e46b10d7b6f3\",\n        \"type\": \"cc_processor\",\n        \"href\": \"https://api.paymentsos.com/accounts/c5e577ce-d7a8-4335-bca4-3f31a546c39d/provider-configurations/0be6be45-2446-4834-8594-8b1ff48ec3c0\"\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Cash",
+					"item": [
+						{
+							"name": "1. Create Payment",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"paymentid\", jsonData.id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "app-id",
+										"value": "{{app_id}}"
+									},
+									{
+										"key": "private_key",
+										"value": "{{private_key_COL}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "api-version",
+										"value": "1.3.0"
+									},
+									{
+										"key": "x-payments-os-env",
+										"value": "{{x-payments-os-env}}"
+									},
+									{
+										"key": "idempotency_key",
+										"value": "{{$randomInt}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"amount\": 4500,\n  \"currency\": \"COP\",\n  \"statement_soft_descriptor\": \"Presales_CASH_TEST_20221012\"\n}"
+								},
+								"url": {
+									"raw": "https://api.paymentsos.com/payments",
+									"protocol": "https",
+									"host": [
+										"api",
+										"paymentsos",
+										"com"
+									],
+									"path": [
+										"payments"
+									]
+								},
+								"description": "Create a new payment"
+							},
+							"response": [
+								{
+									"name": "1. Create Payment",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "app-id",
+												"value": "{{app_id}}"
+											},
+											{
+												"key": "private_key",
+												"value": "{{private_key_COL}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "api-version",
+												"value": "1.3.0"
+											},
+											{
+												"key": "x-payments-os-env",
+												"value": "{{x-payments-os-env}}"
+											},
+											{
+												"key": "idempotency_key",
+												"value": "{{$randomInt}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"amount\": 4500,\n  \"currency\": \"COP\",\n  \"statement_soft_descriptor\": \"Presales_CASH_TEST_20221012\"\n}"
+										},
+										"url": {
+											"raw": "https://api.paymentsos.com/payments",
+											"protocol": "https",
+											"host": [
+												"api",
+												"paymentsos",
+												"com"
+											],
+											"path": [
+												"payments"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Encoding",
+											"value": "gzip"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3bf-XXViyAwtD8xHaNPoOzMcc7mzgpY\""
+										},
+										{
+											"key": "self",
+											"value": "https://api.paymentsos.com/payments/23c4fb84-7d04-49fc-8df9-c88b1dccfedc"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "x-zooz-request-id",
+											"value": "6eb8f0f0-8fd3-4f82-8fa3-3ddf24d82d90"
+										},
+										{
+											"key": "Content-Length",
+											"value": "342"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 12 Oct 2022 20:27:14 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "origin, x-requested-with, accept, x-payments-os-env, content-type, idempotency_key, app_id, x-client-user-agent, x-client-ip-address, public_key, private_key, x-zooz-account-id, authorization, api-version, provider-name"
+										},
+										{
+											"key": "Access-Control-Max-Age",
+											"value": "86400"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "false"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET,POST,PUT,DELETE,PATCH"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": \"23c4fb84-7d04-49fc-8df9-c88b1dccfedc\",\n    \"currency\": \"COP\",\n    \"created\": \"1665606434658\",\n    \"modified\": \"1665606434658\",\n    \"statement_soft_descriptor\": \"Presales_CASH_TEST_20221012\",\n    \"is_disputed\": false,\n    \"status\": \"Initialized\",\n    \"possible_next_actions\": [\n        {\n            \"action\": \"Credit\",\n            \"href\": \"https://api.paymentsos.com/payments/23c4fb84-7d04-49fc-8df9-c88b1dccfedc/credits\"\n        },\n        {\n            \"action\": \"Charge\",\n            \"href\": \"https://api.paymentsos.com/payments/23c4fb84-7d04-49fc-8df9-c88b1dccfedc/charges\"\n        },\n        {\n            \"action\": \"Authorization\",\n            \"href\": \"https://api.paymentsos.com/payments/23c4fb84-7d04-49fc-8df9-c88b1dccfedc/authorizations\"\n        },\n        {\n            \"action\": \"Update Payment\",\n            \"href\": \"https://api.paymentsos.com/payments/23c4fb84-7d04-49fc-8df9-c88b1dccfedc\"\n        },\n        {\n            \"action\": \"Authentication\",\n            \"href\": \"https://api.paymentsos.com/payments/23c4fb84-7d04-49fc-8df9-c88b1dccfedc/authentications\"\n        },\n        {\n            \"action\": \"Risk analysis\",\n            \"href\": \"https://api.paymentsos.com/payments/23c4fb84-7d04-49fc-8df9-c88b1dccfedc/risk-analyses\"\n        }\n    ],\n    \"amount\": 4500\n}"
+								}
+							]
+						},
+						{
+							"name": "2. Create Charge",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "app_id",
+										"value": "{{app_id}}"
+									},
+									{
+										"key": "private_key",
+										"value": "{{private_key_COL}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "api-version",
+										"value": "1.3.0"
+									},
+									{
+										"key": "x-payments-os-env",
+										"value": "{{x-payments-os-env}}"
+									},
+									{
+										"key": "idempotency_key",
+										"value": "{{$randomInt}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"reconciliation_id\": \"{{$randomInt}}\",\n    \"payment_method\": {\n        \"source_type\": \"cash\",\n        \"type\": \"untokenized\",\n        \"vendor\": \"EFECTY\",\n        \"additional_details\": {\n            \"order_language\": \"en\",\n            \"cash_payment_method_vendor\": \"EFECTY\",\n            \"customer_cnpj_identify_number\": \"32593371000115\",\n            \"payment_country\": \"COL\"\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "https://api.paymentsos.com/payments/{{paymentid}}/charges",
+									"protocol": "https",
+									"host": [
+										"api",
+										"paymentsos",
+										"com"
+									],
+									"path": [
+										"payments",
+										"{{paymentid}}",
+										"charges"
+									]
+								},
+								"description": "Create a new charge"
+							},
+							"response": [
+								{
+									"name": "2. Create Charge Copy",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "app_id",
+												"value": "{{app_id}}"
+											},
+											{
+												"key": "private_key",
+												"value": "{{private_key_COL}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "api-version",
+												"value": "1.3.0"
+											},
+											{
+												"key": "x-payments-os-env",
+												"value": "{{x-payments-os-env}}"
+											},
+											{
+												"key": "idempotency_key",
+												"value": "{{$randomInt}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"reconciliation_id\": \"{{$randomInt}}\",\n    \"payment_method\": {\n        \"source_type\": \"cash\",\n        \"type\": \"untokenized\",\n        \"vendor\": \"EFECTY\",\n        \"additional_details\": {\n            \"order_language\": \"en\",\n            \"cash_payment_method_vendor\": \"EFECTY\",\n            \"customer_cnpj_identify_number\": \"32593371000115\",\n            \"payment_country\": \"COL\"\n        }\n    }\n}"
+										},
+										"url": {
+											"raw": "https://api.paymentsos.com/payments/{{paymentid}}/charges",
+											"protocol": "https",
+											"host": [
+												"api",
+												"paymentsos",
+												"com"
+											],
+											"path": [
+												"payments",
+												"{{paymentid}}",
+												"charges"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Encoding",
+											"value": "gzip"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"7bf-/aI/m/hUYxBIW4MaqSMDiwechE0\""
+										},
+										{
+											"key": "self",
+											"value": "https://api.paymentsos.com/payments/23c4fb84-7d04-49fc-8df9-c88b1dccfedc/charges/6a7a060d-3a12-485c-8fe1-b7ea65849837"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "x-zooz-request-id",
+											"value": "db9b8568-8b39-4a00-8603-3dab49ff3641"
+										},
+										{
+											"key": "Content-Length",
+											"value": "957"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 12 Oct 2022 20:27:39 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "origin, x-requested-with, accept, x-payments-os-env, content-type, idempotency_key, app_id, x-client-user-agent, x-client-ip-address, public_key, private_key, x-zooz-account-id, authorization, api-version, provider-name"
+										},
+										{
+											"key": "Access-Control-Max-Age",
+											"value": "86400"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "false"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET,POST,PUT,DELETE,PATCH"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": \"6a7a060d-3a12-485c-8fe1-b7ea65849837\",\n    \"created\": \"1665606459030\",\n    \"reconciliation_id\": \"658\",\n    \"provider_specific_data\": {\n        \"additional_details\": {\n            \"payment_country\": \"COL\",\n            \"customer_cnpj_identify_number\": \"32593371000115\",\n            \"order_language\": \"en\",\n            \"cash_payment_method_vendor\": \"EFECTY\"\n        }\n    },\n    \"payment_method\": {\n        \"alternative_payment\": {\n            \"vendor\": \"EFECTY\"\n        },\n        \"source_type\": \"Cash\",\n        \"type\": \"untokenized\"\n    },\n    \"result\": {\n        \"status\": \"Failed\",\n        \"category\": \"payment_method_declined\",\n        \"description\": \"Payment method declined.\"\n    },\n    \"provider_data\": {\n        \"provider_name\": \"PayULatam\",\n        \"response_code\": \"ENTITY_DECLINED\",\n        \"description\": \"DECLINED\",\n        \"raw_response\": \"{\\\"authorizationCode\\\":null,\\\"responseCode\\\":\\\"ENTITY_DECLINED\\\",\\\"state\\\":\\\"DECLINED\\\",\\\"orderId\\\":\\\"2147906085\\\",\\\"operationDate\\\":\\\"1665588458945\\\",\\\"pendingReason\\\":null,\\\"paymentNetworkResponseErrorMessage\\\":null,\\\"errorCode\\\":null,\\\"responseMessage\\\":\\\"The value of the transaction is less than the minimum allowed by the payment method\\\",\\\"referenceQuestionnaire\\\":null,\\\"additionalInfo\\\":\\\"{\\\\\\\"responseNetworkMessage\\\\\\\":null,\\\\\\\"transactionType\\\\\\\":\\\\\\\"AUTHORIZATION_AND_CAPTURE\\\\\\\",\\\\\\\"paymentNetwork\\\\\\\":\\\\\\\"EFECTY\\\\\\\",\\\\\\\"rejectionType\\\\\\\":\\\\\\\"SOFT_DECLINE\\\\\\\",\\\\\\\"cardType\\\\\\\":null,\\\\\\\"travelAgencyAuthorizationCode\\\\\\\":null}\\\",\\\"trazabilityCode\\\":null,\\\"transactionDate\\\":null,\\\"transactionTime\\\":null,\\\"paymentNetworkResponseCode\\\":null,\\\"extraParameters\\\":null,\\\"transactionId\\\":\\\"ac332fd8-25d1-46b4-a45b-b216752a2df9\\\"}\",\n        \"transaction_id\": \"ac332fd8-25d1-46b4-a45b-b216752a2df9\",\n        \"external_id\": \"2147906085\",\n        \"documents\": []\n    },\n    \"amount\": 4500,\n    \"provider_configuration\": {\n        \"id\": \"0be6be45-2446-4834-8594-8b1ff48ec3c0\",\n        \"name\": \"Presales Test COL\",\n        \"created\": \"1665588758592\",\n        \"modified\": \"1665588758592\",\n        \"account_id\": \"c5e577ce-d7a8-4335-bca4-3f31a546c39d\",\n        \"provider_id\": \"3d9cb628-a5cd-49e2-b455-e46b10d7b6f3\",\n        \"type\": \"cc_processor\",\n        \"href\": \"https://api.paymentsos.com/accounts/c5e577ce-d7a8-4335-bca4-3f31a546c39d/provider-configurations/0be6be45-2446-4834-8594-8b1ff48ec3c0\"\n    }\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "MEX",
+			"item": [
+				{
+					"name": "Credit Card",
+					"item": [
+						{
+							"name": "1. Create Token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", jsonData.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "app_id",
+										"value": "{{app_id_mex}}"
+									},
+									{
+										"key": "public_key",
+										"value": "{{public_key_MEX}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "api-version",
+										"value": "1.3.0"
+									},
+									{
+										"key": "x-payments-os-env",
+										"value": "{{x-payments-os-env}}"
+									},
+									{
+										"key": "private_key",
+										"value": "{{private_key_MEX}}",
+										"type": "default",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"token_type\": \"credit_card\",\n  \"credit_card_cvv\": \"777\",\n  \"card_number\": \"4097440000000004\",\n  \"holder_name\": \"Luis Osorno\",\n  \"expiration_date\": \"06/30\"\n}"
+								},
+								"url": {
+									"raw": "https://api.paymentsos.com/tokens",
+									"protocol": "https",
+									"host": [
+										"api",
+										"paymentsos",
+										"com"
+									],
+									"path": [
+										"tokens"
+									]
+								},
+								"description": "Create a new payment token"
+							},
+							"response": [
+								{
+									"name": "1. Create Token",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "app_id",
+												"value": "{{app_id_mex}}"
+											},
+											{
+												"key": "public_key",
+												"value": "{{public_key_MEX}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "api-version",
+												"value": "1.3.0"
+											},
+											{
+												"key": "x-payments-os-env",
+												"value": "{{x-payments-os-env}}"
+											},
+											{
+												"key": "private_key",
+												"value": "{{private_key_MEX}}",
+												"type": "default",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"token_type\": \"credit_card\",\n  \"credit_card_cvv\": \"777\",\n  \"card_number\": \"4097440000000004\",\n  \"holder_name\": \"Luis Osorno\",\n  \"expiration_date\": \"06/30\"\n}"
+										},
+										"url": {
+											"raw": "https://api.paymentsos.com/tokens",
+											"protocol": "https",
+											"host": [
+												"api",
+												"paymentsos",
+												"com"
+											],
+											"path": [
+												"tokens"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Encoding",
+											"value": "gzip"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"27e-qpFUfxD81jVC0x+/j9pLtKM2guI\""
+										},
+										{
+											"key": "self",
+											"value": "https://api.paymentsos.com/tokens/fd379b2b-a8d3-4174-90c2-cb2316645c13"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "x-zooz-request-id",
+											"value": "ee53972a-e8e0-4eb8-b072-fa9881dca95e"
+										},
+										{
+											"key": "Content-Length",
+											"value": "492"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 12 Oct 2022 20:45:27 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "origin, x-requested-with, accept, x-payments-os-env, content-type, idempotency_key, app_id, x-client-user-agent, x-client-ip-address, public_key, private_key, x-zooz-account-id, authorization, api-version, provider-name"
+										},
+										{
+											"key": "Access-Control-Max-Age",
+											"value": "86400"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "false"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET,POST,PUT,DELETE,PATCH"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"token\": \"fd379b2b-a8d3-4174-90c2-cb2316645c13\",\n    \"created\": \"1665607527646\",\n    \"pass_luhn_validation\": true,\n    \"token_type\": \"credit_card\",\n    \"type\": \"tokenized\",\n    \"state\": \"created\",\n    \"bin_number\": \"409744\",\n    \"vendor\": \"VISA\",\n    \"card_type\": \"CREDIT\",\n    \"issuer\": \"BANCO COLPATRIA - RED MULTIBANCA COLPATRIA, S.A.\",\n    \"level\": \"CLASSIC\",\n    \"country_code\": \"COL\",\n    \"holder_name\": \"Luis Osorno\",\n    \"expiration_date\": \"06/2030\",\n    \"last_4_digits\": \"0004\",\n    \"encrypted_cvv\": \"MDBhNWQ4M2EtZDlhOS00NWRmLWJjMGMtZmM5NmNlNjNiZGM2Y3Z2X2RlbGltaXRlcnZhdWx0OnY1OmVYazZOT0RJU09SWnRNdW9LTDZITG8rRWVrMTVHN1NpSGdIbnE0UnIyRmVLeFZKNGRwbVVnamo2YkdjSEpOS0JHNGZDd2RlNFZQUiswOEhtTGFQcWp1STEzSzN1N1hwaDNsSWZoTVZC\"\n}"
+								}
+							]
+						},
+						{
+							"name": "2. Create Payment",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"paymentid\", jsonData.id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "app-id",
+										"value": "{{app_id_mex}}"
+									},
+									{
+										"key": "private_key",
+										"value": "{{private_key_MEX}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "api-version",
+										"value": "1.3.0"
+									},
+									{
+										"key": "x-payments-os-env",
+										"value": "{{x-payments-os-env}}"
+									},
+									{
+										"key": "idempotency_key",
+										"value": "{{$randomInt}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"amount\": 10,\n  \"currency\": \"USD\",\n  \"statement_soft_descriptor\": \"Presales_TEST_20221012\"\n}"
+								},
+								"url": {
+									"raw": "https://api.paymentsos.com/payments",
+									"protocol": "https",
+									"host": [
+										"api",
+										"paymentsos",
+										"com"
+									],
+									"path": [
+										"payments"
+									]
+								},
+								"description": "Create a new payment"
+							},
+							"response": [
+								{
+									"name": "2. Create Payment",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "app-id",
+												"value": "{{app_id_mex}}"
+											},
+											{
+												"key": "private_key",
+												"value": "{{private_key_MEX}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "api-version",
+												"value": "1.3.0"
+											},
+											{
+												"key": "x-payments-os-env",
+												"value": "{{x-payments-os-env}}"
+											},
+											{
+												"key": "idempotency_key",
+												"value": "{{$randomInt}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"amount\": 10,\n  \"currency\": \"USD\",\n  \"statement_soft_descriptor\": \"Presales_TEST_20221012\"\n}"
+										},
+										"url": {
+											"raw": "https://api.paymentsos.com/payments",
+											"protocol": "https",
+											"host": [
+												"api",
+												"paymentsos",
+												"com"
+											],
+											"path": [
+												"payments"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Encoding",
+											"value": "gzip"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3b8-Js6w1YNuhxayEBRpJvoSLhVayes\""
+										},
+										{
+											"key": "self",
+											"value": "https://api.paymentsos.com/payments/b2792a0a-e42b-4cc8-96c2-b3d98a3997f9"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "x-zooz-request-id",
+											"value": "8c477edb-78ee-4ac7-9292-5f76be8d1401"
+										},
+										{
+											"key": "Content-Length",
+											"value": "335"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 12 Oct 2022 20:46:11 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "origin, x-requested-with, accept, x-payments-os-env, content-type, idempotency_key, app_id, x-client-user-agent, x-client-ip-address, public_key, private_key, x-zooz-account-id, authorization, api-version, provider-name"
+										},
+										{
+											"key": "Access-Control-Max-Age",
+											"value": "86400"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "false"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET,POST,PUT,DELETE,PATCH"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": \"b2792a0a-e42b-4cc8-96c2-b3d98a3997f9\",\n    \"currency\": \"USD\",\n    \"created\": \"1665607571480\",\n    \"modified\": \"1665607571480\",\n    \"statement_soft_descriptor\": \"Presales_TEST_20221012\",\n    \"is_disputed\": false,\n    \"status\": \"Initialized\",\n    \"possible_next_actions\": [\n        {\n            \"action\": \"Credit\",\n            \"href\": \"https://api.paymentsos.com/payments/b2792a0a-e42b-4cc8-96c2-b3d98a3997f9/credits\"\n        },\n        {\n            \"action\": \"Charge\",\n            \"href\": \"https://api.paymentsos.com/payments/b2792a0a-e42b-4cc8-96c2-b3d98a3997f9/charges\"\n        },\n        {\n            \"action\": \"Authorization\",\n            \"href\": \"https://api.paymentsos.com/payments/b2792a0a-e42b-4cc8-96c2-b3d98a3997f9/authorizations\"\n        },\n        {\n            \"action\": \"Update Payment\",\n            \"href\": \"https://api.paymentsos.com/payments/b2792a0a-e42b-4cc8-96c2-b3d98a3997f9\"\n        },\n        {\n            \"action\": \"Authentication\",\n            \"href\": \"https://api.paymentsos.com/payments/b2792a0a-e42b-4cc8-96c2-b3d98a3997f9/authentications\"\n        },\n        {\n            \"action\": \"Risk analysis\",\n            \"href\": \"https://api.paymentsos.com/payments/b2792a0a-e42b-4cc8-96c2-b3d98a3997f9/risk-analyses\"\n        }\n    ],\n    \"amount\": 10\n}"
+								}
+							]
+						},
+						{
+							"name": "3. Create Charge",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "app_id",
+										"value": "{{app_id_mex}}"
+									},
+									{
+										"key": "private_key",
+										"value": "{{private_key_MEX}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "api-version",
+										"value": "1.3.0"
+									},
+									{
+										"key": "x-payments-os-env",
+										"value": "{{x-payments-os-env}}"
+									},
+									{
+										"key": "idempotency_key",
+										"value": "{{$randomInt}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"reconciliation_id\":\"{{$randomInt}}\",\n  \"payment_method\": {\n    \"credit_card_cvv\": \"777\",\n    \"token\": \"{{token}}\",\n    \"type\": \"tokenized\"\n  }\n}"
+								},
+								"url": {
+									"raw": "https://api.paymentsos.com/payments/{{paymentid}}/charges",
+									"protocol": "https",
+									"host": [
+										"api",
+										"paymentsos",
+										"com"
+									],
+									"path": [
+										"payments",
+										"{{paymentid}}",
+										"charges"
+									]
+								},
+								"description": "Create a new charge"
+							},
+							"response": [
+								{
+									"name": "3. Create Charge",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "app_id",
+												"value": "{{app_id_mex}}"
+											},
+											{
+												"key": "private_key",
+												"value": "{{private_key_MEX}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "api-version",
+												"value": "1.3.0"
+											},
+											{
+												"key": "x-payments-os-env",
+												"value": "{{x-payments-os-env}}"
+											},
+											{
+												"key": "idempotency_key",
+												"value": "{{$randomInt}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"reconciliation_id\":\"{{$randomInt}}\",\n  \"payment_method\": {\n    \"credit_card_cvv\": \"777\",\n    \"token\": \"{{token}}\",\n    \"type\": \"tokenized\"\n  }\n}"
+										},
+										"url": {
+											"raw": "https://api.paymentsos.com/payments/{{paymentid}}/charges",
+											"protocol": "https",
+											"host": [
+												"api",
+												"paymentsos",
+												"com"
+											],
+											"path": [
+												"payments",
+												"{{paymentid}}",
+												"charges"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Encoding",
+											"value": "gzip"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"8b3-iJpmEcRw49oQsqLQdz+in2tWjNY\""
+										},
+										{
+											"key": "self",
+											"value": "https://api.paymentsos.com/payments/b2792a0a-e42b-4cc8-96c2-b3d98a3997f9/charges/d9221b6a-724c-494c-8b41-09729d2bfddf"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "x-zooz-request-id",
+											"value": "f0528eda-dbde-47f6-8a09-9c77b80e4911"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1106"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 12 Oct 2022 20:46:50 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "origin, x-requested-with, accept, x-payments-os-env, content-type, idempotency_key, app_id, x-client-user-agent, x-client-ip-address, public_key, private_key, x-zooz-account-id, authorization, api-version, provider-name"
+										},
+										{
+											"key": "Access-Control-Max-Age",
+											"value": "86400"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "false"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET,POST,PUT,DELETE,PATCH"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": \"d9221b6a-724c-494c-8b41-09729d2bfddf\",\n    \"created\": \"1665607610127\",\n    \"reconciliation_id\": \"140\",\n    \"payment_method\": {\n        \"type\": \"tokenized\",\n        \"token\": \"fd379b2b-a8d3-4174-90c2-cb2316645c13\",\n        \"token_type\": \"credit_card\",\n        \"holder_name\": \"Luis Osorno\",\n        \"expiration_date\": \"06/2030\",\n        \"last_4_digits\": \"0004\",\n        \"pass_luhn_validation\": true,\n        \"fingerprint\": \"fcbc73f5-3179-4e49-ae5f-a7307cafe709\",\n        \"bin_number\": \"409744\",\n        \"vendor\": \"VISA\",\n        \"issuer\": \"BANCO COLPATRIA - RED MULTIBANCA COLPATRIA, S.A.\",\n        \"card_type\": \"CREDIT\",\n        \"level\": \"CLASSIC\",\n        \"country_code\": \"COL\",\n        \"created\": \"1665607527646\"\n    },\n    \"result\": {\n        \"status\": \"Succeed\"\n    },\n    \"provider_data\": {\n        \"provider_name\": \"PayULatam\",\n        \"response_code\": \"APPROVED\",\n        \"description\": \"APPROVED\",\n        \"raw_response\": \"{\\\"authorizationCode\\\":\\\"277069\\\",\\\"responseCode\\\":\\\"APPROVED\\\",\\\"PAYMENT_WAY_ID\\\":\\\"4\\\",\\\"state\\\":\\\"APPROVED\\\",\\\"BANK_REFERENCED_CODE\\\":\\\"CREDIT\\\",\\\"orderId\\\":\\\"2147906189\\\",\\\"operationDate\\\":\\\"1665589610034\\\",\\\"pendingReason\\\":null,\\\"paymentNetworkResponseErrorMessage\\\":null,\\\"errorCode\\\":null,\\\"responseMessage\\\":\\\"Aprobada\\\",\\\"referenceQuestionnaire\\\":null,\\\"additionalInfo\\\":\\\"{\\\\\\\"responseNetworkMessage\\\\\\\":null,\\\\\\\"transactionType\\\\\\\":\\\\\\\"AUTHORIZATION_AND_CAPTURE\\\\\\\",\\\\\\\"paymentNetwork\\\\\\\":\\\\\\\"BANCOMER\\\\\\\",\\\\\\\"rejectionType\\\\\\\":\\\\\\\"NONE\\\\\\\",\\\\\\\"cardType\\\\\\\":\\\\\\\"CREDIT\\\\\\\",\\\\\\\"travelAgencyAuthorizationCode\\\\\\\":null}\\\",\\\"trazabilityCode\\\":null,\\\"transactionDate\\\":null,\\\"transactionTime\\\":null,\\\"paymentNetworkResponseCode\\\":\\\"00\\\",\\\"extraParameters\\\":\\\"{\\\\\\\"BANK_REFERENCED_CODE\\\\\\\":\\\\\\\"CREDIT\\\\\\\",\\\\\\\"EXPIRATION_DATE\\\\\\\":1666212360000,\\\\\\\"PAYMENT_WAY_ID\\\\\\\":\\\\\\\"4\\\\\\\"}\\\",\\\"EXPIRATION_DATE\\\":\\\"1666212360000\\\",\\\"transactionId\\\":\\\"254333dc-e0ef-4351-b313-baf1c915f4d4\\\"}\",\n        \"authorization_code\": \"277069\",\n        \"transaction_id\": \"254333dc-e0ef-4351-b313-baf1c915f4d4\",\n        \"external_id\": \"2147906189\"\n    },\n    \"amount\": 10,\n    \"provider_configuration\": {\n        \"id\": \"b619b3eb-c009-4a0c-b201-e70459d0cea7\",\n        \"name\": \"PRESALES TEST MEX\",\n        \"created\": \"1665606862840\",\n        \"modified\": \"1665606862840\",\n        \"account_id\": \"c5e577ce-d7a8-4335-bca4-3f31a546c39d\",\n        \"provider_id\": \"3d9cb628-a5cd-49e2-b455-e46b10d7b6f3\",\n        \"type\": \"cc_processor\",\n        \"href\": \"https://api.paymentsos.com/accounts/c5e577ce-d7a8-4335-bca4-3f31a546c39d/provider-configurations/b619b3eb-c009-4a0c-b201-e70459d0cea7\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "4. Create Refund",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "app_id",
+										"value": "{{app_id_mex}}"
+									},
+									{
+										"key": "private_key",
+										"value": "{{private_key_MEX}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "api-version",
+										"value": "1.3.0"
+									},
+									{
+										"key": "x-payments-os-env",
+										"value": "{{x-payments-os-env}}"
+									},
+									{
+										"key": "idempotency_key",
+										"value": "{{$randomInt}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"amount\": 10\n}"
+								},
+								"url": {
+									"raw": "https://api.paymentsos.com/payments/{{paymentid}}/refunds",
+									"protocol": "https",
+									"host": [
+										"api",
+										"paymentsos",
+										"com"
+									],
+									"path": [
+										"payments",
+										"{{paymentid}}",
+										"refunds"
+									]
+								},
+								"description": "Create a refund"
+							},
+							"response": [
+								{
+									"name": "4. Create Refund",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "app_id",
+												"value": "{{app_id_mex}}"
+											},
+											{
+												"key": "private_key",
+												"value": "{{private_key_MEX}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "api-version",
+												"value": "1.3.0"
+											},
+											{
+												"key": "x-payments-os-env",
+												"value": "{{x-payments-os-env}}"
+											},
+											{
+												"key": "idempotency_key",
+												"value": "{{$randomInt}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"amount\": 10\n}"
+										},
+										"url": {
+											"raw": "https://api.paymentsos.com/payments/{{paymentid}}/refunds",
+											"protocol": "https",
+											"host": [
+												"api",
+												"paymentsos",
+												"com"
+											],
+											"path": [
+												"payments",
+												"{{paymentid}}",
+												"refunds"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Encoding",
+											"value": "gzip"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"668-g6UXUkbMIzBZkE2rL4Ba5zage0s\""
+										},
+										{
+											"key": "self",
+											"value": "https://api.paymentsos.com/payments/b2792a0a-e42b-4cc8-96c2-b3d98a3997f9/refunds/0796e415-dca7-45bd-8e6f-0efa46213939"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "x-zooz-request-id",
+											"value": "48434605-f614-46f3-8ca9-37d6030705f3"
+										},
+										{
+											"key": "Content-Length",
+											"value": "784"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 12 Oct 2022 20:48:03 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "origin, x-requested-with, accept, x-payments-os-env, content-type, idempotency_key, app_id, x-client-user-agent, x-client-ip-address, public_key, private_key, x-zooz-account-id, authorization, api-version, provider-name"
+										},
+										{
+											"key": "Access-Control-Max-Age",
+											"value": "86400"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "false"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET,POST,PUT,DELETE,PATCH"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": \"0796e415-dca7-45bd-8e6f-0efa46213939\",\n    \"created\": \"1665607683530\",\n    \"result\": {\n        \"status\": \"Succeed\"\n    },\n    \"provider_data\": {\n        \"provider_name\": \"PayULatam\",\n        \"response_code\": \"APPROVED\",\n        \"description\": \"APPROVED\",\n        \"raw_response\": \"{\\\"authorizationCode\\\":\\\"611267\\\",\\\"responseCode\\\":\\\"APPROVED\\\",\\\"PAYMENT_WAY_ID\\\":\\\"4\\\",\\\"state\\\":\\\"APPROVED\\\",\\\"BANK_REFERENCED_CODE\\\":\\\"CREDIT\\\",\\\"orderId\\\":\\\"2147906189\\\",\\\"operationDate\\\":\\\"1665589683443\\\",\\\"pendingReason\\\":null,\\\"paymentNetworkResponseErrorMessage\\\":null,\\\"errorCode\\\":null,\\\"responseMessage\\\":\\\"Aprobada\\\",\\\"referenceQuestionnaire\\\":null,\\\"additionalInfo\\\":\\\"{\\\\\\\"responseNetworkMessage\\\\\\\":null,\\\\\\\"transactionType\\\\\\\":\\\\\\\"REFUND\\\\\\\",\\\\\\\"paymentNetwork\\\\\\\":\\\\\\\"BANCOMER\\\\\\\",\\\\\\\"rejectionType\\\\\\\":\\\\\\\"NONE\\\\\\\",\\\\\\\"cardType\\\\\\\":null,\\\\\\\"travelAgencyAuthorizationCode\\\\\\\":null}\\\",\\\"trazabilityCode\\\":null,\\\"transactionDate\\\":null,\\\"transactionTime\\\":null,\\\"paymentNetworkResponseCode\\\":\\\"00\\\",\\\"extraParameters\\\":\\\"{\\\\\\\"BANK_REFERENCED_CODE\\\\\\\":\\\\\\\"CREDIT\\\\\\\",\\\\\\\"PAYMENT_WAY_ID\\\\\\\":\\\\\\\"4\\\\\\\"}\\\",\\\"transactionId\\\":\\\"a7042921-a240-4037-a3d8-5415eb6799d5\\\"}\",\n        \"authorization_code\": \"611267\",\n        \"transaction_id\": \"a7042921-a240-4037-a3d8-5415eb6799d5\",\n        \"external_id\": \"2147906189\"\n    },\n    \"amount\": 10,\n    \"provider_configuration\": {\n        \"id\": \"b619b3eb-c009-4a0c-b201-e70459d0cea7\",\n        \"name\": \"PRESALES TEST MEX\",\n        \"created\": \"1665606862840\",\n        \"modified\": \"1665606862840\",\n        \"account_id\": \"c5e577ce-d7a8-4335-bca4-3f31a546c39d\",\n        \"provider_id\": \"3d9cb628-a5cd-49e2-b455-e46b10d7b6f3\",\n        \"type\": \"cc_processor\",\n        \"href\": \"https://api.paymentsos.com/accounts/c5e577ce-d7a8-4335-bca4-3f31a546c39d/provider-configurations/b619b3eb-c009-4a0c-b201-e70459d0cea7\"\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Cash",
+					"item": [
+						{
+							"name": "1. Create Payment",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"paymentid\", jsonData.id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "app-id",
+										"value": "{{app_id_mex}}"
+									},
+									{
+										"key": "private_key",
+										"value": "{{private_key_MEX}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "api-version",
+										"value": "1.3.0"
+									},
+									{
+										"key": "x-payments-os-env",
+										"value": "{{x-payments-os-env}}"
+									},
+									{
+										"key": "idempotency_key",
+										"value": "{{$randomInt}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"amount\": 30,\n  \"currency\": \"USD\",\n  \"statement_soft_descriptor\": \"Presales_CASH_TEST_20221012\"\n}"
+								},
+								"url": {
+									"raw": "https://api.paymentsos.com/payments",
+									"protocol": "https",
+									"host": [
+										"api",
+										"paymentsos",
+										"com"
+									],
+									"path": [
+										"payments"
+									]
+								},
+								"description": "Create a new payment"
+							},
+							"response": [
+								{
+									"name": "1. Create Payment",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "app-id",
+												"value": "{{app_id_mex}}"
+											},
+											{
+												"key": "private_key",
+												"value": "{{private_key_MEX}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "api-version",
+												"value": "1.3.0"
+											},
+											{
+												"key": "x-payments-os-env",
+												"value": "{{x-payments-os-env}}"
+											},
+											{
+												"key": "idempotency_key",
+												"value": "{{$randomInt}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"amount\": 30,\n  \"currency\": \"USD\",\n  \"statement_soft_descriptor\": \"Presales_CASH_TEST_20221012\"\n}"
+										},
+										"url": {
+											"raw": "https://api.paymentsos.com/payments",
+											"protocol": "https",
+											"host": [
+												"api",
+												"paymentsos",
+												"com"
+											],
+											"path": [
+												"payments"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Encoding",
+											"value": "gzip"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3bd-8ETXLpFC7jVNVbHy0OjZZsGiKco\""
+										},
+										{
+											"key": "self",
+											"value": "https://api.paymentsos.com/payments/b376eeba-4518-4c57-a44d-88c16bdf5f67"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "x-zooz-request-id",
+											"value": "34adaff4-9d38-4bdf-8dfb-ab309a05dbd7"
+										},
+										{
+											"key": "Content-Length",
+											"value": "340"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 12 Oct 2022 20:48:45 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "origin, x-requested-with, accept, x-payments-os-env, content-type, idempotency_key, app_id, x-client-user-agent, x-client-ip-address, public_key, private_key, x-zooz-account-id, authorization, api-version, provider-name"
+										},
+										{
+											"key": "Access-Control-Max-Age",
+											"value": "86400"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "false"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET,POST,PUT,DELETE,PATCH"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": \"b376eeba-4518-4c57-a44d-88c16bdf5f67\",\n    \"currency\": \"USD\",\n    \"created\": \"1665607725517\",\n    \"modified\": \"1665607725517\",\n    \"statement_soft_descriptor\": \"Presales_CASH_TEST_20221012\",\n    \"is_disputed\": false,\n    \"status\": \"Initialized\",\n    \"possible_next_actions\": [\n        {\n            \"action\": \"Credit\",\n            \"href\": \"https://api.paymentsos.com/payments/b376eeba-4518-4c57-a44d-88c16bdf5f67/credits\"\n        },\n        {\n            \"action\": \"Charge\",\n            \"href\": \"https://api.paymentsos.com/payments/b376eeba-4518-4c57-a44d-88c16bdf5f67/charges\"\n        },\n        {\n            \"action\": \"Authorization\",\n            \"href\": \"https://api.paymentsos.com/payments/b376eeba-4518-4c57-a44d-88c16bdf5f67/authorizations\"\n        },\n        {\n            \"action\": \"Update Payment\",\n            \"href\": \"https://api.paymentsos.com/payments/b376eeba-4518-4c57-a44d-88c16bdf5f67\"\n        },\n        {\n            \"action\": \"Authentication\",\n            \"href\": \"https://api.paymentsos.com/payments/b376eeba-4518-4c57-a44d-88c16bdf5f67/authentications\"\n        },\n        {\n            \"action\": \"Risk analysis\",\n            \"href\": \"https://api.paymentsos.com/payments/b376eeba-4518-4c57-a44d-88c16bdf5f67/risk-analyses\"\n        }\n    ],\n    \"amount\": 30\n}"
+								}
+							]
+						},
+						{
+							"name": "2. Create Charge",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "app_id",
+										"value": "{{app_id_mex}}"
+									},
+									{
+										"key": "private_key",
+										"value": "{{private_key_MEX}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "api-version",
+										"value": "1.3.0"
+									},
+									{
+										"key": "x-payments-os-env",
+										"value": "{{x-payments-os-env}}"
+									},
+									{
+										"key": "idempotency_key",
+										"value": "{{$randomInt}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"reconciliation_id\": \"{{$randomInt}}\",\n    \"payment_method\": {\n        \"source_type\": \"cash\",\n        \"type\": \"untokenized\",\n        \"vendor\": \"OXXO\",\n        \"additional_details\": {\n            \"order_language\": \"en\",\n            \"cash_payment_method_vendor\": \"OXXO\",\n            \"customer_cnpj_identify_number\": \"32593371000115\",\n            \"payment_country\": \"MEX\"\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "https://api.paymentsos.com/payments/{{paymentid}}/charges",
+									"protocol": "https",
+									"host": [
+										"api",
+										"paymentsos",
+										"com"
+									],
+									"path": [
+										"payments",
+										"{{paymentid}}",
+										"charges"
+									]
+								},
+								"description": "Create a new charge"
+							},
+							"response": [
+								{
+									"name": "2. Create Charge",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "app_id",
+												"value": "{{app_id_mex}}"
+											},
+											{
+												"key": "private_key",
+												"value": "{{private_key_MEX}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "api-version",
+												"value": "1.3.0"
+											},
+											{
+												"key": "x-payments-os-env",
+												"value": "{{x-payments-os-env}}"
+											},
+											{
+												"key": "idempotency_key",
+												"value": "{{$randomInt}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"reconciliation_id\": \"{{$randomInt}}\",\n    \"payment_method\": {\n        \"source_type\": \"cash\",\n        \"type\": \"untokenized\",\n        \"vendor\": \"OXXO\",\n        \"additional_details\": {\n            \"order_language\": \"en\",\n            \"cash_payment_method_vendor\": \"OXXO\",\n            \"customer_cnpj_identify_number\": \"32593371000115\",\n            \"payment_country\": \"MEX\"\n        }\n    }\n}"
+										},
+										"url": {
+											"raw": "https://api.paymentsos.com/payments/{{paymentid}}/charges",
+											"protocol": "https",
+											"host": [
+												"api",
+												"paymentsos",
+												"com"
+											],
+											"path": [
+												"payments",
+												"{{paymentid}}",
+												"charges"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Encoding",
+											"value": "gzip"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"cdd-bJ1jdov9COpWIebJzWAs8nQBgxY\""
+										},
+										{
+											"key": "self",
+											"value": "https://api.paymentsos.com/payments/b376eeba-4518-4c57-a44d-88c16bdf5f67/charges/148b0f58-eb41-431a-b083-b8fed82cdffd"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "x-zooz-request-id",
+											"value": "624fb3c0-490b-4ae4-8401-f1aff69b79c9"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1240"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 12 Oct 2022 20:50:25 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "origin, x-requested-with, accept, x-payments-os-env, content-type, idempotency_key, app_id, x-client-user-agent, x-client-ip-address, public_key, private_key, x-zooz-account-id, authorization, api-version, provider-name"
+										},
+										{
+											"key": "Access-Control-Max-Age",
+											"value": "86400"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "false"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET,POST,PUT,DELETE,PATCH"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": \"148b0f58-eb41-431a-b083-b8fed82cdffd\",\n    \"created\": \"1665607825578\",\n    \"reconciliation_id\": \"905\",\n    \"provider_specific_data\": {\n        \"additional_details\": {\n            \"payment_country\": \"MEX\",\n            \"customer_cnpj_identify_number\": \"32593371000115\",\n            \"order_language\": \"en\",\n            \"cash_payment_method_vendor\": \"OXXO\"\n        }\n    },\n    \"payment_method\": {\n        \"alternative_payment\": {\n            \"vendor\": \"OXXO\"\n        },\n        \"source_type\": \"Cash\",\n        \"type\": \"untokenized\"\n    },\n    \"result\": {\n        \"status\": \"Pending\"\n    },\n    \"provider_data\": {\n        \"provider_name\": \"PayULatam\",\n        \"response_code\": \"AWAITING_NOTIFICATION\",\n        \"description\": \"PENDING\",\n        \"raw_response\": \"{\\\"authorizationCode\\\":null,\\\"responseCode\\\":\\\"PENDING_TRANSACTION_CONFIRMATION\\\",\\\"PAYMENT_WAY_ID\\\":\\\"1\\\",\\\"state\\\":\\\"PENDING\\\",\\\"BANK_REFERENCED_CODE\\\":\\\"CASH\\\",\\\"orderId\\\":\\\"2147906226\\\",\\\"operationDate\\\":\\\"1665589825495\\\",\\\"pendingReason\\\":\\\"AWAITING_NOTIFICATION\\\",\\\"URL_PAYMENT_RECEIPT_PDF\\\":\\\"https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/receipt?vid=2147906226Y2f3b9f000d204e8Y68d6c1bf7d413e3\\\",\\\"paymentNetworkResponseErrorMessage\\\":null,\\\"REFERENCE\\\":\\\"2147906226\\\",\\\"BAR_CODE\\\":\\\"27002147906226202210190000006017\\\",\\\"errorCode\\\":null,\\\"responseMessage\\\":null,\\\"referenceQuestionnaire\\\":null,\\\"additionalInfo\\\":\\\"{\\\\\\\"responseNetworkMessage\\\\\\\":null,\\\\\\\"transactionType\\\\\\\":\\\\\\\"AUTHORIZATION_AND_CAPTURE\\\\\\\",\\\\\\\"paymentNetwork\\\\\\\":\\\\\\\"OXXO\\\\\\\",\\\\\\\"rejectionType\\\\\\\":\\\\\\\"NONE\\\\\\\",\\\\\\\"cardType\\\\\\\":null,\\\\\\\"travelAgencyAuthorizationCode\\\\\\\":null}\\\",\\\"trazabilityCode\\\":\\\"2f3b9f00-0d20-4e89-98a9-9d19bf7e9c3a\\\",\\\"transactionDate\\\":null,\\\"transactionTime\\\":null,\\\"paymentNetworkResponseCode\\\":null,\\\"extraParameters\\\":\\\"{\\\\\\\"PAYMENT_WAY_ID\\\\\\\":\\\\\\\"1\\\\\\\",\\\\\\\"BANK_REFERENCED_CODE\\\\\\\":\\\\\\\"CASH\\\\\\\",\\\\\\\"URL_PAYMENT_RECEIPT_PDF\\\\\\\":\\\\\\\"https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/receipt?vid=2147906226Y2f3b9f000d204e8Y68d6c1bf7d413e3\\\\\\\",\\\\\\\"REFERENCE\\\\\\\":\\\\\\\"2147906226\\\\\\\",\\\\\\\"BAR_CODE\\\\\\\":\\\\\\\"27002147906226202210190000006017\\\\\\\",\\\\\\\"URL_PAYMENT_RECEIPT_HTML\\\\\\\":\\\\\\\"https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/app/v2?vid=2147906226Y2f3b9f000d204e8Y68d6c1bf7d413e3\\\\\\\",\\\\\\\"EXPIRATION_DATE\\\\\\\":1666241999999}\\\",\\\"URL_PAYMENT_RECEIPT_HTML\\\":\\\"https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/app/v2?vid=2147906226Y2f3b9f000d204e8Y68d6c1bf7d413e3\\\",\\\"EXPIRATION_DATE\\\":\\\"1666241999999\\\",\\\"transactionId\\\":\\\"2f3b9f00-0d20-4e89-98a9-9d19bf7e9c3a\\\"}\",\n        \"transaction_id\": \"2f3b9f00-0d20-4e89-98a9-9d19bf7e9c3a\",\n        \"external_id\": \"2147906226\",\n        \"documents\": [\n            {\n                \"descriptor\": \"receipt_url\",\n                \"content_type\": \"html\",\n                \"href\": \"https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/app/v2?vid=2147906226Y2f3b9f000d204e8Y68d6c1bf7d413e3\"\n            },\n            {\n                \"descriptor\": \"receipt_url\",\n                \"content_type\": \"pdf\",\n                \"href\": \"https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/receipt?vid=2147906226Y2f3b9f000d204e8Y68d6c1bf7d413e3\"\n            }\n        ],\n        \"additional_information\": {\n            \"barcode\": \"27002147906226202210190000006017\"\n        }\n    },\n    \"amount\": 30,\n    \"provider_configuration\": {\n        \"id\": \"b619b3eb-c009-4a0c-b201-e70459d0cea7\",\n        \"name\": \"PRESALES TEST MEX\",\n        \"created\": \"1665606862840\",\n        \"modified\": \"1665606862840\",\n        \"account_id\": \"c5e577ce-d7a8-4335-bca4-3f31a546c39d\",\n        \"provider_id\": \"3d9cb628-a5cd-49e2-b455-e46b10d7b6f3\",\n        \"type\": \"cc_processor\",\n        \"href\": \"https://api.paymentsos.com/accounts/c5e577ce-d7a8-4335-bca4-3f31a546c39d/provider-configurations/b619b3eb-c009-4a0c-b201-e70459d0cea7\"\n    }\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
